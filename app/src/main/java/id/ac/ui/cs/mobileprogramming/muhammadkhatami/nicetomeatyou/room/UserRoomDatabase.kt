@@ -9,7 +9,7 @@ import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
 
 // Annotates class to be a Room Database with a table (entity) of the User class
-@Database(entities = arrayOf(User::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(User::class, Recipe::class), version = 4, exportSchema = false)
 public abstract class UserRoomDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -28,7 +28,8 @@ public abstract class UserRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     UserRoomDatabase::class.java,
                     "users"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 // return instance
                 instance

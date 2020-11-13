@@ -28,10 +28,21 @@ class MainActivity : AppCompatActivity() {
         profile.setOnClickListener{
             navigateToProfileActivity()
         }
+
+        val recipe = findViewById(R.id.recipe_linear_layout) as LinearLayout
+        recipe.setOnClickListener{
+            navigateToRecipeActivity()
+        }
     }
 
     private fun navigateToProfileActivity() {
         val intent = Intent(this, UserActivity::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    private fun navigateToRecipeActivity() {
+        val intent = Intent(this, RecipeActivity::class.java).apply {
         }
         startActivity(intent)
     }

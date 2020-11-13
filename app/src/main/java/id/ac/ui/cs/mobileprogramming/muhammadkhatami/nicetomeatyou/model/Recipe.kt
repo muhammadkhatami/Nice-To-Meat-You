@@ -5,7 +5,11 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "recipes")
+@Entity(tableName = "recipes",
+    foreignKeys = arrayOf(
+        ForeignKey(entity = User::class, parentColumns = arrayOf("id"),
+            childColumns = arrayOf("userId"),
+            onDelete = ForeignKey.CASCADE)))
 data class Recipe(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -20,6 +24,6 @@ data class Recipe(
     @ColumnInfo(name = "photo")
     var photo: String,
 
-    @ColumnInfo(name = "ownerId")
-    var ownerId: String
+    @ColumnInfo(name = "userId")
+    var userId: Int
 )
