@@ -3,6 +3,7 @@ package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
             setText(R.string.settings)
         }
         setContentView(R.layout.activity_main)
+
+        Log.d("mainActivityOnCreate", "-------------mainActivityOnCreate--------------")
 
         val profile = findViewById(R.id.profile_linear_layout) as LinearLayout
         profile.setOnClickListener{

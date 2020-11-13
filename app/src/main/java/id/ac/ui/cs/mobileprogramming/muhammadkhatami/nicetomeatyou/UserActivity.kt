@@ -22,6 +22,9 @@ class UserActivity : AppCompatActivity() {
     private lateinit var userAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        Log.d("userActivityOnCreate", "--------------userActivityOnCreate---------------------")
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
 
@@ -35,8 +38,6 @@ class UserActivity : AppCompatActivity() {
         userViewModel.getUsers()?.observe(this, Observer {
             userAdapter.setUsers(it)
         })
-
-        Log.d("onCreate", "--------------onCreate---------------------")
 
     }
 
