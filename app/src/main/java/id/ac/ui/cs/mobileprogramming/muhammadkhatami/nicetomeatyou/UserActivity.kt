@@ -22,9 +22,6 @@ class UserActivity : AppCompatActivity() {
     private lateinit var userAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        Log.d("userActivityOnCreate", "--------------userActivityOnCreate---------------------")
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
 
@@ -42,7 +39,6 @@ class UserActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        Log.d("onCreateOptionsMenu", "--------------onCreateOptionsMenu---------------------")
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu);

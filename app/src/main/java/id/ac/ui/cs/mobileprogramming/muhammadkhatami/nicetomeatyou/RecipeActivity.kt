@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,9 +23,7 @@ class RecipeActivity : AppCompatActivity() {
     private lateinit var recipeAdapter: RecipeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        Log.d("recipeActivityOnCreate", "--------------recipeActivityOnCreate---------------------")
-
+        Log.d("RecipeActivityCreate", "------------------RecipeActivityCreate-------------------------")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
@@ -42,57 +41,22 @@ class RecipeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        Log.d("onCreateOptionsMenu", "--------------onCreateOptionsMenu---------------------")
         val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.main_menu, menu)
+        inflater.inflate(R.menu.recipe_app_bar, menu)
         return super.onCreateOptionsMenu(menu);
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.addMenu -> showAlertDialogAdd()
+            R.id.addRecipe -> navigateToCreateRecipeActivity()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showAlertDialogAdd() {
-        val alert = AlertDialog.Builder(this)
-        alert.setTitle("Title")
-
-        val layout = LinearLayout(applicationContext)
-        layout.orientation = LinearLayout.VERTICAL
-
-        val titleText = EditText(applicationContext)
-        titleText.hint = "Enter your username"
-        layout.addView(titleText)
-
-        val time = EditText(applicationContext)
-        time.hint = "Time to cook"
-        layout.addView(time) // Notice this is an add method
-
-        val user = EditText(applicationContext)
-        user.hint = "user"
-        layout.addView(user)
-
-        alert.setView(layout) // Again this is a set method, not add
-
-        alert.setPositiveButton("Save") { dialog, _ ->
-            recipeViewModel.insertRecipe(
-                Recipe(
-                    recipe_title = titleText.text.toString(),
-                    time = time.text.toString().toInt(),
-                    photo = "test",
-                    userId = 1
-                )
-            )
-            dialog.dismiss()
+    private fun navigateToCreateRecipeActivity() {
+        val intent = Intent(this, CreateRecipeActivity::class.java).apply {
         }
-
-        alert.setNegativeButton("Cancel") { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        alert.show()
+        startActivity(intent)
     }
 
     private fun showAlertMenu(recipe: Recipe) {

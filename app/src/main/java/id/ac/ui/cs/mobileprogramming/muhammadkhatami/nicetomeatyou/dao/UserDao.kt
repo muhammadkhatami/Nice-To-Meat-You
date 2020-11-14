@@ -3,7 +3,6 @@ package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
-import java.util.concurrent.Flow
 
 @Dao
 interface UserDao {

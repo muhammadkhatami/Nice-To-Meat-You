@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_main)
 
-        Log.d("mainActivityOnCreate", "-------------mainActivityOnCreate--------------")
-
         val profile = findViewById(R.id.profile_linear_layout) as LinearLayout
         profile.setOnClickListener{
             navigateToProfileActivity()

@@ -41,7 +41,7 @@ class UserAdapter(private val context: Context?, private val listener: (User, In
 class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(context: Context, user: User, listener: (User, Int) -> Unit) {
-        itemView.userTV.text = user.username + " - " + user.email
+        itemView.userTV.text = user.id.toString() + " - " + user.username + " - " + user.email
 
         itemView.setOnClickListener {
             listener(user, layoutPosition)
