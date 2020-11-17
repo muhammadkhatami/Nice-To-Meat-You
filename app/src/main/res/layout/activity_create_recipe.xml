@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="10dp"
+    tools:context=".CreateRecipeActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/recipeTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/addRecipeTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/recipeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorWhite"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/recipeTimeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/addRecipeTimer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintTop_toTopOf="@+id/recipeTitleLayout"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/recipeTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorWhite"
+            android:inputType="number"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/dropdownSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintTop_toTopOf="@+id/recipeTimeLayout"/>
+
+    <Button
+        android:id="@+id/buttonCreateRecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addRecipe"
+        android:backgroundTint="@color/colorPrimaryDarker"
+        app:icon="@drawable/ic_baseline_add_24"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dropdownSpinner"
+        app:layout_constraintVertical_bias="0.2"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

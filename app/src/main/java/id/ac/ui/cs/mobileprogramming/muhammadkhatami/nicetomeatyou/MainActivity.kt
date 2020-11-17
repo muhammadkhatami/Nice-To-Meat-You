@@ -3,6 +3,8 @@ package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 
@@ -20,16 +22,26 @@ class MainActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_main)
 
-        // get reference to button
         val profile = findViewById(R.id.profile_linear_layout) as LinearLayout
         profile.setOnClickListener{
             navigateToProfileActivity()
         }
+
+        val recipe = findViewById(R.id.recipe_linear_layout) as LinearLayout
+        recipe.setOnClickListener{
+            navigateToRecipeActivity()
+        }
     }
 
-    fun navigateToProfileActivity() {
-//        val intent = Intent(this, UserActivity::class.java).apply {
-//        }
-//        startActivity(intent)
+    private fun navigateToProfileActivity() {
+        val intent = Intent(this, UserActivity::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    private fun navigateToRecipeActivity() {
+        val intent = Intent(this, RecipeActivity::class.java).apply {
+        }
+        startActivity(intent)
     }
 }
