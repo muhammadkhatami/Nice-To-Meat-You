@@ -14,5 +14,8 @@ data class User(
     var username: String,
 
     @ColumnInfo(name = "email")
-    var email: String
+    var email: String,
+
+    @ColumnInfo(name = "image")
+    var image: String
 )

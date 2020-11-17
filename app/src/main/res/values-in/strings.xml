@@ -4,4 +4,9 @@
     <string name="profile">profil</string>
     <string name="recipe">resep</string>
     <string name="settings">pengaturan</string>
+    <string name="addNote">tambah note</string>
+    <string name="addRecipeTitle">judul resep</string>
+    <string name="addRecipeTimer">timer resep</string>
+    <string name="addRecipe">tambah resep</string>
+    <string name="timerStart">mulai</string>
 </resources>

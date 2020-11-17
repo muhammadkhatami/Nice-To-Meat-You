@@ -3,8 +3,8 @@ package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.repository
 import android.app.Application
 import androidx.lifecycle.LiveData
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.dao.UserDao
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.room.UserRoomDatabase
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.room.RecipeRoomDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -15,7 +15,7 @@ class UserRepository(application: Application) {
     private var users: LiveData<List<User>>? = null
 
     init {
-        val db = UserRoomDatabase.getDatabase(application.applicationContext)
+        val db = RecipeRoomDatabase.getDatabase(application.applicationContext)
         userDao = db?.userDao()
         users = userDao?.getUsers()
     }

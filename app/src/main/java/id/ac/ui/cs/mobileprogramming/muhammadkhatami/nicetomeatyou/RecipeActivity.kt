@@ -29,8 +29,9 @@ class RecipeActivity : AppCompatActivity() {
 
         recipeRV.layoutManager = LinearLayoutManager(this)
         recipeAdapter = RecipeAdapter(this) { recipe, i ->
-            showAlertMenu(recipe)
+            navigateToDetailRecipeActivity(recipe)
         }
+
         recipeRV.adapter = recipeAdapter
 
         recipeViewModel = ViewModelProvider(this).get(RecipeViewModel::class.java)
@@ -42,13 +43,13 @@ class RecipeActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.recipe_app_bar, menu)
+        inflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu);
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.addRecipe -> navigateToCreateRecipeActivity()
+            R.id.addMenu -> navigateToCreateRecipeActivity()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -56,6 +57,13 @@ class RecipeActivity : AppCompatActivity() {
     private fun navigateToCreateRecipeActivity() {
         val intent = Intent(this, CreateRecipeActivity::class.java).apply {
         }
+        startActivity(intent)
+    }
+
+    private fun navigateToDetailRecipeActivity(recipe: Recipe) {
+        val intent = Intent(this, DetailRecipeActivity::class.java).apply {
+        }
+        intent.putExtra("thisRecipe", recipe)
         startActivity(intent)
     }
 

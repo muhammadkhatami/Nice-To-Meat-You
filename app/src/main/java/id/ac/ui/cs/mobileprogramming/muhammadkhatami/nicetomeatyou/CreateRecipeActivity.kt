@@ -3,22 +3,19 @@ package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.Observer
+import android.widget.*
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.RecipeViewModel
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.activity_recipe.*
 
 class CreateRecipeActivity : AppCompatActivity() {
+
     private lateinit var recipeViewModel: RecipeViewModel
     private lateinit var recipeAdapter: RecipeAdapter
+
+    private lateinit var userViewModel: UserViewModel
+    private lateinit var userAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("onCreateRecipe", "------------------onCreateRecipe-------------------------")
@@ -49,6 +46,7 @@ class CreateRecipeActivity : AppCompatActivity() {
                 userId = 1
             )
         )
+        onBackPressed()
     }
 
     private fun showAlertMenu(recipe: Recipe) {

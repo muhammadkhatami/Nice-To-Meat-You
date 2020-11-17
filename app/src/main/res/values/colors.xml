@@ -2,11 +2,11 @@
 
 <!-- All the colors used in the application -->
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#C6C6C6</color>
+    <color name="colorPrimaryDark">#7A7A7A</color>
+    <color name="colorPrimaryDarker">#404040</color>
+    <color name="colorAccent">#FF4186</color>
     <color name="colorWhite">#eeeded</color>
     <color name="colorGray">#5c6e91</color>
-    <color name="colorRed">#8f384d</color>
-    <color name="colorOrange">#dd9866</color>
+    <color name="colorRed">#d12c42</color>
 </resources>

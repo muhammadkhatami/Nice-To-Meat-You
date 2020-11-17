@@ -4,4 +4,9 @@
     <string name="profile">profile</string>
     <string name="recipe">recipe</string>
     <string name="settings">settings</string>
+    <string name="addNote">add note</string>
+    <string name="addRecipeTitle">recipe title</string>
+    <string name="addRecipeTimer">recipe timer</string>
+    <string name="addRecipe">add recipe</string>
+    <string name="timerStart">start</string>
 </resources>

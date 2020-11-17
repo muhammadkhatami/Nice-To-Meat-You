@@ -1,12 +1,14 @@
 package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.R
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
+import kotlinx.android.synthetic.main.item_recipe.view.*
 import kotlinx.android.synthetic.main.item_user.view.*
 
 class UserAdapter(private val context: Context?, private val listener: (User, Int) -> Unit) :
@@ -41,7 +43,9 @@ class UserAdapter(private val context: Context?, private val listener: (User, In
 class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(context: Context, user: User, listener: (User, Int) -> Unit) {
-        itemView.userTV.text = user.id.toString() + " - " + user.username + " - " + user.email
+        itemView.userTV.text = user.id.toString() + " - " + user.username
+        itemView.userTV1.text = user.email
+        itemView.imageView.setImageURI(Uri.parse(user.image))
 
         itemView.setOnClickListener {
             listener(user, layoutPosition)

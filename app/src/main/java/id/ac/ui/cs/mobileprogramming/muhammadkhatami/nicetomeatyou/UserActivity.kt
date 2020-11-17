@@ -1,14 +1,16 @@
 package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.EditText
-import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,11 @@ class UserActivity : AppCompatActivity() {
 
     private lateinit var userViewModel: UserViewModel
     private lateinit var userAdapter: UserAdapter
+
+    companion object {
+        const val PICK_IMAGE_REQUEST_CODE = 1000
+        const val READ_EXTERNAL_STORAGE_REQUEST_CODE = 1001
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +43,15 @@ class UserActivity : AppCompatActivity() {
             userAdapter.setUsers(it)
         })
 
+        if (ActivityCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) ==  PackageManager.PERMISSION_GRANTED) {
+            //
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                READ_EXTERNAL_STORAGE_REQUEST_CODE
+            )
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -46,52 +62,15 @@ class UserActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.addMenu -> showAlertDialogAdd()
+            R.id.addMenu -> navigateToCreateUserActivity()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showAlertDialogAdd() {
-        val alert = AlertDialog.Builder(this)
-
-        val usernameText = EditText(applicationContext)
-        usernameText.hint = "Enter your username"
-
-        alert.setTitle("New User")
-        alert.setView(usernameText)
-
-        val layout = LinearLayout(applicationContext)
-        layout.orientation = LinearLayout.VERTICAL
-
-        // Add a TextView here for the "Title" label, as noted in the comments
-
-        // Add a TextView here for the "Title" label, as noted in the comments
-        val usernameBox = EditText(applicationContext)
-        usernameBox.hint = "Username"
-        layout.addView(usernameBox) // Notice this is an add method
-
-        val emailBox = EditText(applicationContext)
-        emailBox.hint = "Email"
-        layout.addView(emailBox)
-
-
-        alert.setView(layout) // Again this is a set method, not add
-
-        alert.setPositiveButton("Save") { dialog, _ ->
-            userViewModel.insertUser(
-                User(
-                    username = usernameBox.text.toString(),
-                    email = emailBox.text.toString()
-                )
-            )
-            dialog.dismiss()
+    private fun navigateToCreateUserActivity() {
+        val intent = Intent(this, CreateUserActivity::class.java).apply {
         }
-
-        alert.setNegativeButton("Cancel") { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        alert.show()
+        startActivity(intent)
     }
 
     private fun showAlertMenu(user: User) {

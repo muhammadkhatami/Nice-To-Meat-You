@@ -40,7 +40,8 @@ class RecipeAdapter(private val context: Context?, private val listener: (Recipe
 class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(context: Context, recipe: Recipe, listener: (Recipe, Int) -> Unit) {
-        itemView.recipeTV.text = recipe.recipe_title + " - " + recipe.time
+        itemView.recipeTV.text = recipe.id.toString() + " - " + recipe.recipe_title
+        itemView.recipeTV1.text = recipe.time.toString() + " second"
 
         itemView.setOnClickListener {
             listener(recipe, layoutPosition)

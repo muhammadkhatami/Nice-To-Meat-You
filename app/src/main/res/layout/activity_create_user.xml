@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="10dp"
-    tools:context=".CreateRecipeActivity">
+    tools:context=".CreateUserActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/recipeTitleLayout"
+        android:id="@+id/usernameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/addRecipeTitle"
+        android:hint="username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -19,56 +19,66 @@
         app:layout_constraintVertical_bias="0.05"
         >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/recipeTitle"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorWhite"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/recipeTimeLayout"
+        android:id="@+id/emailLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/addRecipeTimer"
+        android:hint="email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0.15"
-        app:layout_constraintTop_toTopOf="@+id/recipeTitleLayout"
+        app:layout_constraintTop_toTopOf="@+id/usernameLayout"
         >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/recipeTime"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorWhite"
-            android:inputType="number"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Spinner
-        android:id="@+id/dropdownSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/buttonPickImage"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="390dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/colorPrimaryDarker"
+        android:text="pick image"
+        app:icon="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.15"
-        app:layout_constraintTop_toTopOf="@+id/recipeTimeLayout"/>
+        app:layout_constraintTop_toTopOf="@+id/emailLayout"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="253dp"
+        android:layout_height="216dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonPickImage"
+        app:layout_constraintVertical_bias="0.226" />
 
     <Button
-        android:id="@+id/buttonCreateRecipe"
+        android:id="@+id/buttonCreateUser"
+        style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addRecipe"
         android:backgroundTint="@color/colorPrimaryDarker"
+        android:text="@string/addRecipe"
         app:icon="@drawable/ic_baseline_add_24"
-        style="@style/Widget.MaterialComponents.Button.Icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dropdownSpinner"
-        app:layout_constraintVertical_bias="0.2"
-        />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.608" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
