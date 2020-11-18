@@ -43,5 +43,4 @@ class UserRepository(application: Application) {
             userDao?.updateUser(user)
         }
     }
-
 }

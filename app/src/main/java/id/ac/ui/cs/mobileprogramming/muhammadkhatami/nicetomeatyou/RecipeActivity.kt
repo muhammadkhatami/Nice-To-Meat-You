@@ -1,6 +1,8 @@
 package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +12,7 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +42,17 @@ class RecipeActivity : AppCompatActivity() {
             recipeAdapter.setRecipes(it)
         })
 
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) ==  PackageManager.PERMISSION_GRANTED) {
+            //
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                UserActivity.READ_EXTERNAL_STORAGE_REQUEST_CODE
+            )
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

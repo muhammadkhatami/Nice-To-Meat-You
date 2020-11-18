@@ -9,4 +9,6 @@
     <string name="addRecipeTimer">timer resep</string>
     <string name="addRecipe">tambah resep</string>
     <string name="timerStart">mulai</string>
+    <string name="pickImage">pilih foto</string>
+    <string name="addUser">add user</string>
 </resources>

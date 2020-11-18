@@ -57,6 +57,30 @@
         app:layout_constraintTop_toTopOf="@+id/recipeTimeLayout"/>
 
     <Button
+        android:id="@+id/buttonPickImage"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="390dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/colorPrimaryDarker"
+        android:text="pick image"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dropdownSpinner"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="253dp"
+        android:layout_height="216dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonPickImage"
+        app:layout_constraintVertical_bias="0.226" />
+
+    <Button
         android:id="@+id/buttonCreateRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +92,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/dropdownSpinner"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_bias="0.9"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
