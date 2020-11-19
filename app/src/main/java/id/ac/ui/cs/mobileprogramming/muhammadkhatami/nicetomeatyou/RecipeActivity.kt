@@ -5,13 +5,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -25,8 +21,12 @@ class RecipeActivity : AppCompatActivity() {
     private lateinit var recipeViewModel: RecipeViewModel
     private lateinit var recipeAdapter: RecipeAdapter
 
+    companion object {
+        const val PICK_IMAGE_REQUEST_CODE = 1000
+        const val READ_EXTERNAL_STORAGE_REQUEST_CODE = 1001
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d("RecipeActivityCreate", "------------------RecipeActivityCreate-------------------------")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
@@ -50,7 +50,7 @@ class RecipeActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                UserActivity.READ_EXTERNAL_STORAGE_REQUEST_CODE
+                RecipeActivity.READ_EXTERNAL_STORAGE_REQUEST_CODE
             )
         }
     }
@@ -79,46 +79,5 @@ class RecipeActivity : AppCompatActivity() {
         }
         intent.putExtra("thisRecipe", recipe)
         startActivity(intent)
-    }
-
-    private fun showAlertMenu(recipe: Recipe) {
-        val items = arrayOf("Edit", "Delete")
-
-        val builder =
-            AlertDialog.Builder(this)
-        builder.setItems(items) { dialog, which ->
-            // the user clicked on colors[which]
-            when (which) {
-                0 -> {
-                    showAlertDialogEdit(recipe)
-                }
-                1 -> {
-                    recipeViewModel.deleteRecipe(recipe)
-                }
-            }
-        }
-        builder.show()
-    }
-
-    private fun showAlertDialogEdit(recipe: Recipe) {
-        val alert = AlertDialog.Builder(this)
-
-        val editText = EditText(applicationContext)
-        editText.setText(recipe.recipe_title)
-
-        alert.setTitle("Edit User")
-        alert.setView(editText)
-
-        alert.setPositiveButton("Update") { dialog, _ ->
-            recipe.recipe_title = editText.text.toString()
-            recipeViewModel.updateRecipe(recipe)
-            dialog.dismiss()
-        }
-
-        alert.setNegativeButton("Cancel") { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        alert.show()
     }
 }

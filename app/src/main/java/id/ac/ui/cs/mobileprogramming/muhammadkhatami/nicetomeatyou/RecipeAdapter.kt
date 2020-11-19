@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
 import kotlinx.android.synthetic.main.item_recipe.view.*
-import kotlinx.android.synthetic.main.item_user.view.*
 
 class RecipeAdapter(private val context: Context?, private val listener: (Recipe, Int) -> Unit) :
     RecyclerView.Adapter<RecipeViewHolder>() {
@@ -18,7 +17,7 @@ class RecipeAdapter(private val context: Context?, private val listener: (Recipe
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         return RecipeViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_user,
+                R.layout.item_recipe,
                 parent,
                 false
             )
@@ -42,8 +41,8 @@ class RecipeAdapter(private val context: Context?, private val listener: (Recipe
 class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(context: Context, recipe: Recipe, listener: (Recipe, Int) -> Unit) {
-        itemView.userTV.text = recipe.id.toString() + " - " + recipe.recipe_title
-        itemView.userTV1.text = recipe.time.toString() + " second"
+        itemView.recipeTV.text = recipe.id.toString() + " - " + recipe.recipe_title
+        itemView.recipeTV1.text = recipe.time.toString() + " second"
         itemView.imageView.setImageURI(Uri.parse(recipe.photo))
 
         itemView.setOnClickListener {

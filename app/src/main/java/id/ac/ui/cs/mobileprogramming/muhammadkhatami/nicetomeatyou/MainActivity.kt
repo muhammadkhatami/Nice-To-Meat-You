@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         TextView(this).apply {
-            setText(R.string.profile)
+            setText(R.string.category)
         }
         TextView(this).apply {
             setText(R.string.recipe)
@@ -22,25 +22,36 @@ class MainActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_main)
 
-        val profile = findViewById(R.id.profile_linear_layout) as LinearLayout
-        profile.setOnClickListener{
-            navigateToProfileActivity()
+        val category = findViewById(R.id.category_linear_layout) as LinearLayout
+        category.setOnClickListener{
+            navigateToCategoryActivity()
         }
 
         val recipe = findViewById(R.id.recipe_linear_layout) as LinearLayout
         recipe.setOnClickListener{
             navigateToRecipeActivity()
         }
+
+        val resultUsers = findViewById(R.id.result_users_linear_layout) as LinearLayout
+        resultUsers.setOnClickListener{
+            navigateToResultUsersActivity()
+        }
     }
 
-    private fun navigateToProfileActivity() {
-        val intent = Intent(this, UserActivity::class.java).apply {
+    private fun navigateToCategoryActivity() {
+        val intent = Intent(this, CategoryActivity::class.java).apply {
         }
         startActivity(intent)
     }
 
     private fun navigateToRecipeActivity() {
         val intent = Intent(this, RecipeActivity::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    private fun navigateToResultUsersActivity() {
+        val intent = Intent(this, DishActivity::class.java).apply {
         }
         startActivity(intent)
     }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Nice To Meat You</string>
     <string name="app_description">App by Muhammad Khatami</string>
-    <string name="profile">profile</string>
+    <string name="category">category</string>
     <string name="recipe">recipe</string>
     <string name="settings">settings</string>
     <string name="addNote">add note</string>
@@ -10,5 +10,5 @@
     <string name="addRecipe">add recipe</string>
     <string name="timerStart">start</string>
     <string name="pickImage">pick image</string>
-    <string name="addUser">add user</string>
+    <string name="addCategory">add category</string>
 </resources>

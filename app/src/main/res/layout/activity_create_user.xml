@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="10dp"
-    tools:context=".CreateUserActivity">
+    tools:context=".CreateCategoryActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameLayout"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.05"
         >
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -68,12 +68,12 @@
         app:layout_constraintVertical_bias="0.226" />
 
     <Button
-        android:id="@+id/buttonCreateUser"
+        android:id="@+id/buttonCreateCategory"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimaryDarker"
-        android:text="@string/addUser"
+        android:text="@string/addCategory"
         app:icon="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -6,17 +6,17 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.dao.NoteDao
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.dao.RecipeDao
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.dao.UserDao
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.dao.CateogryDao
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Category
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Note
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
 
 // Annotates class to be a Room Database with a table (entity) of the Recipe class
-@Database(entities = arrayOf(Recipe::class, User::class, Note::class), version = 9, exportSchema = false)
+@Database(entities = arrayOf(Recipe::class, Category::class, Note::class), version = 11, exportSchema = false)
 public abstract class RecipeRoomDatabase : RoomDatabase() {
 
     abstract fun recipeDao(): RecipeDao
-    abstract fun userDao(): UserDao
+    abstract fun categoryDao(): CateogryDao
     abstract fun noteDao(): NoteDao
 
     companion object {

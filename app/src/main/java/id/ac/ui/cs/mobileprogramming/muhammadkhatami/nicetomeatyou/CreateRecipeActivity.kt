@@ -3,14 +3,15 @@ package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.CategoryViewModel
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.RecipeViewModel
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.activity_create_user.*
+import kotlinx.android.synthetic.main.activity_create_recipe.*
 
 
 class CreateRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -18,8 +19,8 @@ class CreateRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
     private lateinit var recipeViewModel: RecipeViewModel
     private lateinit var recipeAdapter: RecipeAdapter
 
-    private lateinit var userViewModel: UserViewModel
-    private lateinit var userAdapter: UserAdapter
+    private lateinit var categoryViewModel: CategoryViewModel
+    private lateinit var categoryAdapter: CategoryAdapter
 
     val REQUEST_CODE = 100
     var imageURI = ""
@@ -31,8 +32,8 @@ class CreateRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
                 super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_recipe)
 
-        val profile = findViewById(R.id.buttonCreateRecipe) as Button
-        profile.setOnClickListener{
+        val recipe = findViewById(R.id.buttonCreateRecipe) as Button
+        recipe.setOnClickListener{
             createRecipe()
         }
         recipeViewModel = ViewModelProvider(this).get(RecipeViewModel::class.java)
@@ -66,19 +67,23 @@ class CreateRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
 
 
     fun createRecipe() {
+
+        Log.d("---------", "---------------------------------------------")
         val recipeTitle = findViewById(R.id.recipeTitle) as EditText
         val recipeTime = findViewById(R.id.recipeTime) as EditText
 
-        if (selectedSpinner == "")
 
         recipeViewModel.insertRecipe(
             Recipe(
-                recipe_title = selectedSpinner.toString(),
+                recipe_title = recipeTitle.text.toString(),
                 time = recipeTime.text.toString().toInt(),
-                photo = imageURI,
-                userId = 1
+                photo = imageURI
             )
         )
+        Log.d("recipeTitle", recipeTitle.text.toString())
+        Log.d("recipeTime", recipeTime.text.toString())
+        Log.d("imageURI", imageURI)
+        Log.d("XXXXXXXXX", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         onBackPressed()
     }
 

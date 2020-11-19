@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Nice To Meat You</string>
     <string name="app_description">Aplikasi oleh Muhammad Khatami</string>
-    <string name="profile">profil</string>
+    <string name="category">kategori</string>
     <string name="recipe">resep</string>
     <string name="settings">pengaturan</string>
     <string name="addNote">tambah note</string>
@@ -10,5 +10,5 @@
     <string name="addRecipe">tambah resep</string>
     <string name="timerStart">mulai</string>
     <string name="pickImage">pilih foto</string>
-    <string name="addUser">add user</string>
+    <string name="addCategory">tambah kategori</string>
 </resources>

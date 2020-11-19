@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UserActivity">
+    tools:context=".CategoryActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/userRV"
+        android:id="@+id/categoryRV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

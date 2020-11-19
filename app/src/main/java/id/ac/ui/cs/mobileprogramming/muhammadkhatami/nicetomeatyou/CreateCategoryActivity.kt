@@ -9,15 +9,15 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.UserViewModel
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Category
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.CategoryViewModel
 import kotlinx.android.synthetic.main.activity_create_user.*
 
 
-class CreateUserActivity : AppCompatActivity() {
+class CreateCategoryActivity : AppCompatActivity() {
 
-    private lateinit var userViewModel: UserViewModel
-    private lateinit var userAdapter: UserAdapter
+    private lateinit var categoryViewModel: CategoryViewModel
+    private lateinit var categoryAdapter: CategoryAdapter
     val REQUEST_CODE = 100
     var imageURI = ""
 
@@ -25,9 +25,9 @@ class CreateUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_user)
 
-        val profile = findViewById(R.id.buttonCreateUser) as Button
-        profile.setOnClickListener{
-            createUser()
+        val category = findViewById(R.id.buttonCreateCategory) as Button
+        category.setOnClickListener{
+            createCategory()
         }
         val imageView = findViewById(R.id.imageView) as ImageView
 
@@ -35,7 +35,7 @@ class CreateUserActivity : AppCompatActivity() {
         pickImage.setOnClickListener{
             openGalleryForImage()
         }
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        categoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
     }
 
     private fun openGalleryForImage() {
@@ -52,15 +52,12 @@ class CreateUserActivity : AppCompatActivity() {
         }
     }
 
-    fun createUser() {
-        val username = findViewById(R.id.username) as EditText
-        val email = findViewById(R.id.email) as EditText
+    fun createCategory() {
+        val name = findViewById(R.id.name) as EditText
 
-        userViewModel.insertUser(
-            User(
-                username = username.text.toString(),
-                email = email.text.toString(),
-                image = imageURI
+        categoryViewModel.insertCategory(
+            Category(
+                name = name.text.toString()
             )
         )
         onBackPressed()

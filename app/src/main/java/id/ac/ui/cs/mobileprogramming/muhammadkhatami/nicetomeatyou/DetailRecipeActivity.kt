@@ -17,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Note
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.User
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.NoteViewModel
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.RecipeViewModel
 import kotlinx.android.synthetic.main.activity_detail_recipe.*
