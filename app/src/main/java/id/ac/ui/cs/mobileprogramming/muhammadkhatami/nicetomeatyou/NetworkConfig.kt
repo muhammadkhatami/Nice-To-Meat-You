@@ -25,9 +25,9 @@ class NetworkConfig {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    fun getService() = getRetrofit().create(Dishes::class.java)
+    fun getService(): Dishes = getRetrofit().create(Dishes::class.java)
 }
 interface Dishes {
     @GET("shokugeki-no-soma-fake-API")
-    fun getUsers(): Call<List<Dish>>
+    fun getDishes(): Call<List<Dish>>
 }

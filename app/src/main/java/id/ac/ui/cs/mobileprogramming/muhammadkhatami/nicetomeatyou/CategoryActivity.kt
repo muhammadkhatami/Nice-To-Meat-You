@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.adapter.CategoryAdapter
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.CategoryViewModel
 import kotlinx.android.synthetic.main.activity_category.*
 

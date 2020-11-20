@@ -1,14 +1,13 @@
-package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
+package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.adapter
 
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.R
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Category
-import kotlinx.android.synthetic.main.item_recipe.view.*
-import kotlinx.android.synthetic.main.item_user.view.*
+import kotlinx.android.synthetic.main.item_category.view.*
 
 class CategoryAdapter(private val context: Context?, private val listener: (Category, Int) -> Unit) :
     RecyclerView.Adapter<CategoryViewHolder>() {
@@ -18,7 +17,7 @@ class CategoryAdapter(private val context: Context?, private val listener: (Cate
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_user,
+                R.layout.item_category,
                 parent,
                 false
             )

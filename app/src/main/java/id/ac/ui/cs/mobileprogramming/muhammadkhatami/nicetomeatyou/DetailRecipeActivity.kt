@@ -15,13 +15,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.adapter.NoteAdapter
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Note
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.NoteViewModel
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.RecipeViewModel
 import kotlinx.android.synthetic.main.activity_detail_recipe.*
 import kotlinx.android.synthetic.main.activity_detail_recipe.recipeRV
-import kotlinx.android.synthetic.main.activity_recipe.*
 import java.lang.Thread.sleep
 
 class DetailRecipeActivity : AppCompatActivity() {

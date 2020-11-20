@@ -1,10 +1,11 @@
-package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
+package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.R
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Note
 import kotlinx.android.synthetic.main.item_recipe.view.*
 

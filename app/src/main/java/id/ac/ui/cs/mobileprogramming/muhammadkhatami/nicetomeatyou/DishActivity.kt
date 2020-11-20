@@ -15,7 +15,7 @@ class DishActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dish)
 
         NetworkConfig().getService()
-            .getUsers()
+            .getDishes()
             .enqueue(object : Callback<List<Dish>> {
                 override fun onFailure(call: Call<List<Dish>>, t: Throwable) {
                     Toast.makeText(this@DishActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()

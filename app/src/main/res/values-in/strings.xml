@@ -11,4 +11,5 @@
     <string name="timerStart">mulai</string>
     <string name="pickImage">pilih foto</string>
     <string name="addCategory">tambah kategori</string>
+    <string name="categoryName">nama kategori</string>
 </resources>

@@ -8,25 +8,21 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.CategoryViewModel
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.RecipeViewModel
 import kotlinx.android.synthetic.main.activity_create_recipe.*
 
 
-class CreateRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class CreateRecipeActivity : AppCompatActivity() {
 
     private lateinit var recipeViewModel: RecipeViewModel
-    private lateinit var recipeAdapter: RecipeAdapter
-
-    private lateinit var categoryViewModel: CategoryViewModel
-    private lateinit var categoryAdapter: CategoryAdapter
 
     val REQUEST_CODE = 100
     var imageURI = ""
-    var selectedSpinner = ""
-
-    var users = arrayOf("Suresh Dasari", "Trishika Dasari", "Rohini Alavala", "Praveen Kumar", "Madhav Sai")
+    var chipSelected = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
@@ -42,13 +38,22 @@ class CreateRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
         pickImage.setOnClickListener{
             openGalleryForImage()
         }
+        val chipGroup = findViewById(R.id.chipGroup) as ChipGroup
 
-        val spinner = findViewById(R.id.dropdownSpinner) as Spinner
+        val chipWinterFood = findViewById(R.id.chipWinterFood) as Chip
+        chipGroup.setOnClickListener {
+            // Responds to chip click
+        }
+        chipGroup.setOnCheckedChangeListener { chipGroup, i ->
+            // Responds to chip checked/unchecked
+            getSelectedText(chipGroup, i)
+        }
+    }
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, users)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.setAdapter(adapter)
-        spinner.setOnItemSelectedListener(this)
+    private fun getSelectedText(chipGroup: ChipGroup, id: Int): String {
+        val mySelection = chipGroup.findViewById(id) as Chip
+        chipSelected = mySelection?.text?.toString() ?: ""
+        return mySelection?.text?.toString() ?: ""
     }
 
     private fun openGalleryForImage() {
@@ -80,18 +85,6 @@ class CreateRecipeActivity : AppCompatActivity(), AdapterView.OnItemSelectedList
                 photo = imageURI
             )
         )
-        Log.d("recipeTitle", recipeTitle.text.toString())
-        Log.d("recipeTime", recipeTime.text.toString())
-        Log.d("imageURI", imageURI)
-        Log.d("XXXXXXXXX", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         onBackPressed()
-    }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-        selectedSpinner = users[position]
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-
     }
 }

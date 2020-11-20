@@ -51,7 +51,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         )
 
         val mBuilder = NotificationCompat.Builder(context, "CHANNEL_ID")
-            .setSmallIcon(R.drawable.ic_baseline_add_24)
+            .setSmallIcon(R.drawable.mainlogo)
             .setContentTitle("Waktu Habis")
             .setContentText("Segera balik steak anda!")
         mBuilder.setContentIntent(contentIntent)

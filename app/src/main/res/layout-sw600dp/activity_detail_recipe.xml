@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailRecipeActivity">
+
+    <TextView
+        android:id="@+id/recipeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="recipeTitle"
+        android:textColor="@color/colorRed"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textColor="@color/colorGray"
+        android:textSize="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recipeTitle"
+        app:layout_constraintVertical_bias="0.305" />
+
+    <Button
+        android:id="@+id/startTimerButton"
+        android:layout_width="100dp"
+        android:layout_height="38dp"
+        android:background="@color/colorRed"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/timerStart"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timerText"
+        app:layout_constraintVertical_bias="0.154" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recipeRV"
+            android:layout_width="500dp"
+            android:layout_height="450dp"
+            android:layout_marginHorizontal="10dp"
+            android:fastScrollEnabled="true"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:splitMotionEvents="false"
+            android:verticalScrollbarPosition="right"
+            app:layout_constraintTop_toTopOf="@+id/createNoteButton"
+            app:layout_constraintVertical_bias="0.861" />
+
+        <Button
+            android:id="@+id/createNoteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:background="@color/colorRed"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/addNote"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/startTimerButton"
+            app:layout_constraintVertical_bias="0.315" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

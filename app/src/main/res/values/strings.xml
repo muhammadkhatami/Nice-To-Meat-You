@@ -11,4 +11,5 @@
     <string name="timerStart">start</string>
     <string name="pickImage">pick image</string>
     <string name="addCategory">add category</string>
+    <string name="categoryName">category name</string>
 </resources>

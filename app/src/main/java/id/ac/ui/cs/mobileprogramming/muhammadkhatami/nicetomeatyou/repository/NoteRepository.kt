@@ -4,10 +4,8 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.dao.NoteDao
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Note
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.room.RecipeRoomDatabase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.room.NiceToMeatYouRoomDatabase
+import kotlinx.coroutines.*
 
 
 class NoteRepository(application: Application) {
@@ -15,9 +13,10 @@ class NoteRepository(application: Application) {
     private val noteDao: NoteDao?
     private var notes: LiveData<List<Note>>? = null
     private var notesByRecipeId: LiveData<List<Note>>? = null
+    val applicationScope = CoroutineScope(SupervisorJob())
 
     init {
-        val db = RecipeRoomDatabase.getDatabase(application.applicationContext)
+        val db = NiceToMeatYouRoomDatabase.getDatabase(application.applicationContext, applicationScope)
         noteDao = db?.noteDao()
         notes = noteDao?.getNotes()
     }
