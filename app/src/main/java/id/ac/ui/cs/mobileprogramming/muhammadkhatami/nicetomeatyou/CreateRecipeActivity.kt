@@ -3,15 +3,15 @@ package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.view.LayoutInflater
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Category
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Recipe
-import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.CategoryViewModel
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.RecipeViewModel
 import kotlinx.android.synthetic.main.activity_create_recipe.*
 
@@ -21,7 +21,7 @@ class CreateRecipeActivity : AppCompatActivity() {
     private lateinit var recipeViewModel: RecipeViewModel
 
     val REQUEST_CODE = 100
-    var imageURI = ""
+    private var imageURI = ""
     var chipSelected = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class CreateRecipeActivity : AppCompatActivity() {
 
         val recipe = findViewById(R.id.buttonCreateRecipe) as Button
         recipe.setOnClickListener{
-            createRecipe()
+            insertRecipe()
         }
         recipeViewModel = ViewModelProvider(this).get(RecipeViewModel::class.java)
 
@@ -40,20 +40,16 @@ class CreateRecipeActivity : AppCompatActivity() {
         }
         val chipGroup = findViewById(R.id.chipGroup) as ChipGroup
 
-        val chipWinterFood = findViewById(R.id.chipWinterFood) as Chip
-        chipGroup.setOnClickListener {
-            // Responds to chip click
-        }
-        chipGroup.setOnCheckedChangeListener { chipGroup, i ->
-            // Responds to chip checked/unchecked
-            getSelectedText(chipGroup, i)
-        }
-    }
-
-    private fun getSelectedText(chipGroup: ChipGroup, id: Int): String {
-        val mySelection = chipGroup.findViewById(id) as Chip
-        chipSelected = mySelection?.text?.toString() ?: ""
-        return mySelection?.text?.toString() ?: ""
+        recipeViewModel.allCategories()?.observe(this, Observer { categories ->
+            categories?.let {
+                for (category: Category in categories) {
+                    val chip = LayoutInflater.from(this).inflate(R.layout.chip, null) as Chip
+                    chip.text = category.name
+                    chip.id = category.id!!
+                    chipGroup.addView(chip)
+                }
+            }
+        })
     }
 
     private fun openGalleryForImage() {
@@ -70,21 +66,22 @@ class CreateRecipeActivity : AppCompatActivity() {
         }
     }
 
-
-    fun createRecipe() {
-
-        Log.d("---------", "---------------------------------------------")
+    fun insertRecipe() {
         val recipeTitle = findViewById(R.id.recipeTitle) as EditText
         val recipeTime = findViewById(R.id.recipeTime) as EditText
 
+        if(recipeTitle.text !=null && recipeTime.text !=null && chipGroup.checkedChipIds.size != 0) {
+            val ids: List<Int> = chipGroup.checkedChipIds
 
-        recipeViewModel.insertRecipe(
-            Recipe(
-                recipe_title = recipeTitle.text.toString(),
-                time = recipeTime.text.toString().toInt(),
-                photo = imageURI
+            recipeViewModel.insertRecipe(
+                Recipe(
+                    recipe_title = recipeTitle.text.toString(),
+                    time = recipeTime.text.toString().toInt(),
+                    photo = imageURI,
+                    categoryId = ids[0]
+                )
             )
-        )
-        onBackPressed()
+            onBackPressed()
+        }
     }
 }

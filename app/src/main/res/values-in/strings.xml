@@ -12,4 +12,11 @@
     <string name="pickImage">pilih foto</string>
     <string name="addCategory">tambah kategori</string>
     <string name="categoryName">nama kategori</string>
+    <string name="winterFood">Winter Food</string>
+    <string name="summerFood">Summer Food</string>
+    <string name="animeFood">Anime Food</string>
+    <string name="timer">10</string>
+    <string name="soma">SOMA!</string>
+    <string name="name">name</string>
+    <string name="telp">telp</string>
 </resources>

@@ -41,7 +41,7 @@ class NoteAdapter(private val context: Context?, private val listener: (Note, In
 class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(context: Context, note: Note, listener: (Note, Int) -> Unit) {
-        itemView.recipeTV.text = note.recipeId.toString() + " - " + note.text
+        itemView.recipeTV.text = note.text
 
         itemView.setOnClickListener {
             listener(note, layoutPosition)

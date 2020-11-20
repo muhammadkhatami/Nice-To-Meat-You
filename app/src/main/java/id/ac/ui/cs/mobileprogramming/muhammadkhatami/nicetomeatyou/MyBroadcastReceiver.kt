@@ -1,6 +1,5 @@
 package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -12,7 +11,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.getSystemService
 
 
 private const val TAG = "MyBroadcastReceiver"
@@ -40,7 +38,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         val importance = NotificationManager.IMPORTANCE_HIGH
         val mChannel = NotificationChannel("CHANNEL_ID", name, importance)
         mChannel.description = descriptionText
-        // Register the channel with the system; you can't change the importance
+        // Register the channel with the system;  can't change the importance
         // or other notification behaviors after this
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(mChannel)

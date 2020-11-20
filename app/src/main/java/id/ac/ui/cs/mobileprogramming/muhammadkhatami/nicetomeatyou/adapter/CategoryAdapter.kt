@@ -41,7 +41,7 @@ class CategoryAdapter(private val context: Context?, private val listener: (Cate
 class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(context: Context, category: Category, listener: (Category, Int) -> Unit) {
-        itemView.userTV.text = category.id.toString() + " - " + category.name
+        itemView.userTV.text = category.name
 
         itemView.setOnClickListener {
             listener(category, layoutPosition)

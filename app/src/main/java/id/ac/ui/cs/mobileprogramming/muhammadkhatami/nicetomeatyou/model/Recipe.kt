@@ -7,7 +7,12 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "recipes")
+@Entity(tableName = "recipes",
+    foreignKeys = arrayOf(
+        ForeignKey(entity = Category::class, parentColumns = arrayOf("id"),
+            childColumns = arrayOf("categoryId"),
+            onDelete = ForeignKey.CASCADE)
+    ))
 data class Recipe(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -20,21 +25,25 @@ data class Recipe(
     var time: Int,
 
     @ColumnInfo(name = "photo")
-    var photo: String?
+    var photo: String?,
+
+    @ColumnInfo(name = "categoryId")
+    var categoryId: Int
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
         parcel.readInt(),
-        parcel.readString()
-    ) {
-    }
+        parcel.readString(),
+        parcel.readInt()
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeValue(id)
         parcel.writeString(recipe_title)
         parcel.writeInt(time)
         parcel.writeString(photo)
+        parcel.writeInt(categoryId)
     }
 
     override fun describeContents(): Int {

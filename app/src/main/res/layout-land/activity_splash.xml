@@ -34,7 +34,7 @@
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nice To Meat You"
+            android:text="@string/app_name"
             android:textColor="@color/colorRed"
             android:textSize="40dp"
             android:textStyle="bold" />

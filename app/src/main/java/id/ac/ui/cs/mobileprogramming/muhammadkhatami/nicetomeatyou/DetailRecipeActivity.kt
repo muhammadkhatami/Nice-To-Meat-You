@@ -6,7 +6,6 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -69,8 +68,6 @@ class DetailRecipeActivity : AppCompatActivity() {
     }
 
     private fun showAlertDialogAdd(thisRecipe: Recipe) {
-        Log.d("showAlert", "-----------ShowAlertDialog-----------")
-
         val alert = AlertDialog.Builder(this)
 
         val notesText = EditText(applicationContext)
@@ -103,11 +100,9 @@ class DetailRecipeActivity : AppCompatActivity() {
     }
 
     private fun startTimer() {
-
         val startTimerButton : Button = findViewById<Button>(R.id.startTimerButton)
 
         continueTicking = true
-
         startTimerButton.text = "Pause"
 
         Thread(Runnable {

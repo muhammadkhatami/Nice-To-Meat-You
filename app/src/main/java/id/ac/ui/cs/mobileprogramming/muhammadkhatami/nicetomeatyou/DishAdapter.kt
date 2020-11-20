@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Dish
-import kotlinx.android.synthetic.main.item_without_pict.view.*
+import kotlinx.android.synthetic.main.item_dish.view.*
 
 class DishAdapter(val data: List<Dish>?) : RecyclerView.Adapter<DishAdapter.MyHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_without_pict, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_dish, parent, false)
         return MyHolder(v)
     }
 

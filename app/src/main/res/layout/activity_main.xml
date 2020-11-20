@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Nice To Meat You"
+            android:text="@string/app_name"
             android:textColor="@color/colorRed"
             android:textSize="17dp"
             android:textStyle="bold"

@@ -73,24 +73,6 @@
             app:selectionRequired="true"
             app:singleSelection="true"
             android:paddingRight="15dp">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipWinterFood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Winter Food" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipSummerFood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Summer Food" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipAnimeFood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Anime Food" />
         </com.google.android.material.chip.ChipGroup>
 
         <Button
@@ -99,7 +81,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimaryDarker"
-            android:text="pick image"
+            android:text="@string/pickImage"
             app:icon="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

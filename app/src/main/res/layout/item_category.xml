@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:textStyle="bold"
-                android:text="Recipe"
+                android:text="@string/category"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
 

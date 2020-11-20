@@ -15,7 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 // Annotates class to be a Room Database with a table (entity) of the Recipe class
-@Database(entities = arrayOf(Recipe::class, Category::class, Note::class), version = 3, exportSchema = false)
+@Database(entities = arrayOf(Recipe::class, Category::class, Note::class), version = 7, exportSchema = false)
 public abstract class NiceToMeatYouRoomDatabase : RoomDatabase() {
 
     abstract fun recipeDao(): RecipeDao
@@ -67,7 +67,6 @@ public abstract class NiceToMeatYouRoomDatabase : RoomDatabase() {
             cateogryDao.insertCategory(category)
             category = Category(3, "Anime Food")
             cateogryDao.insertCategory(category)
-
         }
     }
 }
