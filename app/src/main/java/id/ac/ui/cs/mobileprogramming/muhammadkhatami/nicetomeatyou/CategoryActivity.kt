@@ -1,11 +1,18 @@
 package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.EditText
+import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.adapter.CategoryAdapter
+import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.model.Category
 import id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou.viewmodel.CategoryViewModel
 import kotlinx.android.synthetic.main.activity_category.*
 
@@ -19,7 +26,9 @@ class CategoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_category)
 
         categoryRV.layoutManager = LinearLayoutManager(this)
-        categoryAdapter = CategoryAdapter(this) { category, i -> }
+        categoryAdapter = CategoryAdapter(this) { category, i ->
+            showAlertMenu(category)
+        }
 
         categoryRV.adapter = categoryAdapter
 
@@ -27,5 +36,86 @@ class CategoryActivity : AppCompatActivity() {
         categoryViewModel.getCategories()?.observe(this, Observer {
             categoryAdapter.setCategory(it)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.addMenu -> showAlertDialogAdd()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showAlertDialogAdd() {
+        val alert = AlertDialog.Builder(this)
+
+        alert.setTitle("Category")
+
+        val layout = LinearLayout(applicationContext)
+        layout.orientation = LinearLayout.VERTICAL
+
+        val nameBox = EditText(applicationContext)
+        nameBox.hint = "name"
+        layout.addView(nameBox)
+        alert.setView(layout)
+
+        alert.setPositiveButton("Save") { dialog, _ ->
+            categoryViewModel.insertCategory(
+                Category(
+                    name = nameBox.text.toString()
+                )
+            )
+            dialog.dismiss()
+        }
+        alert.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.dismiss()
+        }
+        alert.show()
+    }
+
+    private fun showAlertMenu(category: Category) {
+        val items = arrayOf("Edit", "Delete")
+
+        val builder =
+            AlertDialog.Builder(this)
+        builder.setItems(items) { dialog, which ->
+            // the user clicked on colors[which]
+            when (which) {
+                0 -> {
+                    showAlertDialogEdit(category)
+                }
+                1 -> {
+                    categoryViewModel.deleteCategory(category)
+                }
+            }
+        }
+        builder.show()
+    }
+
+    private fun showAlertDialogEdit(category: Category) {
+        val alert = AlertDialog.Builder(this)
+
+        val editText = EditText(applicationContext)
+        editText.setText(category.name)
+
+        alert.setTitle("Edit User")
+        alert.setView(editText)
+
+        alert.setPositiveButton("Update") { dialog, _ ->
+            category.name = editText.text.toString()
+            categoryViewModel.updateCategory(category)
+            dialog.dismiss()
+        }
+
+        alert.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        alert.show()
     }
 }

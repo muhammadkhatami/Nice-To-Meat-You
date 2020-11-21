@@ -11,7 +11,19 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
     private var categoryRepository = CategoryRepository(application)
     private var categories: LiveData<List<Category>>? = categoryRepository.getCategories()
 
+    fun insertCategory(category: Category) {
+        categoryRepository.insert(category)
+    }
+
     fun getCategories(): LiveData<List<Category>>? {
         return categories
+    }
+
+    fun deleteCategory(category: Category) {
+        categoryRepository.delete(category)
+    }
+
+    fun updateCategory(category: Category) {
+        categoryRepository.update(category)
     }
 }
