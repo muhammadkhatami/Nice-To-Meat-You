@@ -22,7 +22,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         showNotification(context)
         StringBuilder().apply {
-            append("Waktu Habis")
+            append("Waktu Habis! ")
             append("Segera balik steak anda sekarang")
             toString().also { log ->
                 Log.d(TAG, log)

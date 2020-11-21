@@ -81,8 +81,8 @@ class DetailRecipeActivity : AppCompatActivity() {
 
         val textBox = EditText(applicationContext)
         textBox.hint = "notes"
-        layout.addView(textBox) // Notice this is an add method
-        alert.setView(layout) // Again this is a set method, not add
+        layout.addView(textBox) // Notice this is an start method
+        alert.setView(layout) // Again this is a set method, not start
 
         alert.setPositiveButton("Save") { dialog, _ ->
             noteViewModel.insertNote(
@@ -103,7 +103,6 @@ class DetailRecipeActivity : AppCompatActivity() {
         val startTimerButton : Button = findViewById<Button>(R.id.startTimerButton)
 
         continueTicking = true
-        startTimerButton.text = "Pause"
 
         Thread(Runnable {
             while (countDown > 0 && continueTicking) {
