@@ -19,8 +19,8 @@
         >
         <ImageView
             android:id="@+id/main_logo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="120dp"
+            android:layout_height="103dp"
             android:src="@drawable/mainlogo"
             android:layout_gravity="center"/>
 
@@ -31,15 +31,15 @@
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/colorRed"
-            android:textSize="25dp"
+            android:textSize="17dp"
             android:textStyle="bold"
             android:layout_gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/category_linear_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -49,16 +49,16 @@
         tools:ignore="MissingConstraints"
         android:orientation="vertical" >
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/anime_class"/>
+            android:id="@+id/category_image"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:src="@drawable/anime_class"
+            android:gravity="center"/>
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="@string/category"/>
+            android:layout_width="66dp"
+            android:layout_height="20dp"
+            android:text="@string/category"
+            android:gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
@@ -73,16 +73,37 @@
         tools:ignore="MissingConstraints"
         android:orientation="vertical" >
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
             android:src="@drawable/kakasih_recipe"/>
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="@string/recipe"/>
+            android:layout_width="46dp"
+            android:layout_height="20dp"
+            android:text="@string/recipe"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jni_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical" >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:src="@drawable/kakasih_recipe"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="@string/confused"
+            android:gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
@@ -98,16 +119,14 @@
         tools:ignore="MissingConstraints"
         android:orientation="vertical" >
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
             android:src="@drawable/soma"/>
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:text="@string/soma"/>
+            android:layout_width="46dp"
+            android:layout_height="20dp"
+            android:text="SOMA!"
+            android:gravity="center"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
