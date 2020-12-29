@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         resultUsers.setOnClickListener{
             navigateToResultUsersActivity()
         }
+
+        val jniActivity = findViewById(R.id.jni_linear_layout) as LinearLayout
+        jniActivity.setOnClickListener{
+            navigateToJNIActivity()
+        }
     }
 
     private fun navigateToCategoryActivity() {
@@ -50,6 +55,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateToResultUsersActivity() {
         val intent = Intent(this, DishActivity::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    private fun navigateToJNIActivity() {
+        val intent = Intent(this, JNIActivity::class.java).apply {
         }
         startActivity(intent)
     }

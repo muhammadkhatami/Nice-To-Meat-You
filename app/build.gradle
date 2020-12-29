@@ -47,6 +47,13 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
+
+    externalNativeBuild {
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
+        }
+    }
+    ndkVersion '21.3.6528147'
 }
 
 dependencies {
@@ -60,6 +67,8 @@ dependencies {
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 

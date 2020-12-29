@@ -19,4 +19,14 @@
     <string name="soma">SOMA!</string>
     <string name="name">name</string>
     <string name="telp">telp</string>
+    <string name="confused">I am confused</string>
+    <string name="insertNumber">Insert Number</string>
+    <string name="process">Process</string>
+    <string name="genap">Even</string>
+    <string name="ganjil">Odd</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 </resources>

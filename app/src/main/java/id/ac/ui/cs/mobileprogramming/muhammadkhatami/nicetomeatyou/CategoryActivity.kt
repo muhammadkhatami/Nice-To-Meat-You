@@ -54,17 +54,17 @@ class CategoryActivity : AppCompatActivity() {
     private fun showAlertDialogAdd() {
         val alert = AlertDialog.Builder(this)
 
-        alert.setTitle("Category")
+        alert.setTitle("${getString(R.string.category)}")
 
         val layout = LinearLayout(applicationContext)
         layout.orientation = LinearLayout.VERTICAL
 
         val nameBox = EditText(applicationContext)
-        nameBox.hint = "name"
+        nameBox.hint = "${getString(R.string.name)}"
         layout.addView(nameBox)
         alert.setView(layout)
 
-        alert.setPositiveButton("Save") { dialog, _ ->
+        alert.setPositiveButton("\"${getString(R.string.save)}\"") { dialog, _ ->
             categoryViewModel.insertCategory(
                 Category(
                     name = nameBox.text.toString()
@@ -72,14 +72,14 @@ class CategoryActivity : AppCompatActivity() {
             )
             dialog.dismiss()
         }
-        alert.setNegativeButton("Cancel") { dialog, _ ->
+        alert.setNegativeButton("${getString(R.string.cancel)}") { dialog, _ ->
             dialog.dismiss()
         }
         alert.show()
     }
 
     private fun showAlertMenu(category: Category) {
-        val items = arrayOf("Edit", "Delete")
+        val items = arrayOf("${getString(R.string.edit)}", "${getString(R.string.delete)}")
 
         val builder =
             AlertDialog.Builder(this)
@@ -103,16 +103,16 @@ class CategoryActivity : AppCompatActivity() {
         val editText = EditText(applicationContext)
         editText.setText(category.name)
 
-        alert.setTitle("Edit User")
+        alert.setTitle("\"${getString(R.string.edit)}\"")
         alert.setView(editText)
 
-        alert.setPositiveButton("Update") { dialog, _ ->
+        alert.setPositiveButton("\"${getString(R.string.update)}\"") { dialog, _ ->
             category.name = editText.text.toString()
             categoryViewModel.updateCategory(category)
             dialog.dismiss()
         }
 
-        alert.setNegativeButton("Cancel") { dialog, _ ->
+        alert.setNegativeButton("\"${getString(R.string.cancel)}\"") { dialog, _ ->
             dialog.dismiss()
         }
 

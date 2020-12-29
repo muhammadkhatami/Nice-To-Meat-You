@@ -8,7 +8,6 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -19,9 +18,13 @@
         android:roundIcon="@drawable/mainlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DishActivity"></activity>
-        <activity android:name=".DetailRecipeActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".JNIActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".DishActivity" />
+        <activity
+            android:name=".DetailRecipeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateRecipeActivity" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".CategoryActivity" /> <!-- The below is for the splash screen and we need no action bar and the default theme -->

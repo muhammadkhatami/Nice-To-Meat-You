@@ -19,4 +19,14 @@
     <string name="soma">SOMA!</string>
     <string name="name">name</string>
     <string name="telp">telp</string>
+    <string name="confused">Saya bingung</string>
+    <string name="insertNumber">Masukan Angka</string>
+    <string name="process">Proses</string>
+    <string name="genap">Genap</string>
+    <string name="ganjil">Ganjil</string>
+    <string name="save">Simpan</string>
+    <string name="cancel">Batal</string>
+    <string name="edit">Sunting</string>
+    <string name="delete">Hapus</string>
+    <string name="update">Perbarui</string>
 </resources>
