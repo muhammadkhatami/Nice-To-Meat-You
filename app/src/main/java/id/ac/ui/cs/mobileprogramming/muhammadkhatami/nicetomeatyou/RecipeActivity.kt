@@ -103,7 +103,7 @@ class RecipeActivity : AppCompatActivity() {
         val builder =
             AlertDialog.Builder(this)
 
-        builder.setMessage("Nice To Meat You need local storage access to create your recipe. Please grant the permission manually from setting to continue using Nice To Meat You :).")
+        builder.setMessage("Nice To Meat You need local storage access to create your recipe. Please grant the permission manually from setting to continue using Nice To Meat You or Re-Open this App:).")
         builder.setTitle("Wait !")
         builder.setCancelable(false)
 
