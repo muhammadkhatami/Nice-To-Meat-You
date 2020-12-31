@@ -1,6 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.muhammadkhatami.nicetomeatyou
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -43,17 +45,8 @@ class RecipeActivity : AppCompatActivity() {
             recipeAdapter.setRecipes(it)
         })
 
-        if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            ) ==  PackageManager.PERMISSION_GRANTED) {
-            //
-        } else {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                RecipeActivity.READ_EXTERNAL_STORAGE_REQUEST_CODE
-            )
-        }
+        chekingPermission()
+        triggerAlertPermission()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -80,5 +73,49 @@ class RecipeActivity : AppCompatActivity() {
         }
         intent.putExtra("thisRecipe", recipe)
         startActivity(intent)
+    }
+
+    private fun chekingPermission() {
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) ==  PackageManager.PERMISSION_GRANTED) {
+            //
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                RecipeActivity.READ_EXTERNAL_STORAGE_REQUEST_CODE
+            )
+        }
+    }
+
+    private fun triggerAlertPermission() {
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) ==  PackageManager.PERMISSION_GRANTED) {
+            //
+        } else {
+            showAccessDenyAlert()
+        }
+    }
+
+    private fun showAccessDenyAlert() {
+        val builder =
+            AlertDialog.Builder(this)
+
+        builder.setMessage("Nice To Meat You need local storage access to create your recipe. Please grant the permission manually from setting to continue using Nice To Meat You :).")
+        builder.setTitle("Wait !")
+        builder.setCancelable(false)
+
+        builder
+            .setPositiveButton(
+                "Close App",
+                DialogInterface.OnClickListener { dialog, which ->
+                    // then app will close
+                    finishAffinity()
+                })
+
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.show()
     }
 }

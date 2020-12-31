@@ -14,11 +14,6 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
-//        TextView(this).apply {
-//            setText(R.string.app_description)
-//        }
-//        setContentView(R.layout.activity_splash)
 
         glSurfaceView = MyGLSurfaceView(this)
         setContentView(glSurfaceView)
