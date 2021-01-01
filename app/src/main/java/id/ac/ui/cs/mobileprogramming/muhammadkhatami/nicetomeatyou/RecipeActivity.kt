@@ -101,16 +101,6 @@ class RecipeActivity : AppCompatActivity() {
         }
     }
 
-    private fun triggerAlertPermission() {
-        if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            ) ==  PackageManager.PERMISSION_GRANTED) {
-            //
-        } else {
-            showAccessDenyAlert()
-        }
-    }
-
     private fun showAccessDenyAlert() {
         val builder =
             AlertDialog.Builder(this)
