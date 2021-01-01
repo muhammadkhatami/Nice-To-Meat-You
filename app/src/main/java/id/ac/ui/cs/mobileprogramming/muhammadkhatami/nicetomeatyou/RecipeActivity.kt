@@ -46,7 +46,19 @@ class RecipeActivity : AppCompatActivity() {
         })
 
         chekingPermission()
-        triggerAlertPermission()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            READ_EXTERNAL_STORAGE_REQUEST_CODE -> {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // continue
+                } else {
+                    showAccessDenyAlert()
+                }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

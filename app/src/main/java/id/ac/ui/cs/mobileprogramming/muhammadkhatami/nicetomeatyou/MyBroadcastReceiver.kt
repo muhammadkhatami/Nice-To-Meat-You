@@ -55,6 +55,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
         mBuilder.setContentIntent(contentIntent)
         mBuilder.setDefaults(RingtoneManager.TYPE_NOTIFICATION)
         mBuilder.setAutoCancel(true)
+        mBuilder.setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
 
         idCounter += 1
         with(NotificationManagerCompat.from(context)) {
