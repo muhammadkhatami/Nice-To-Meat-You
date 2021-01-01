@@ -52,7 +52,7 @@ class MyGLRenderer : GLSurfaceView.Renderer {
         Matrix.multiplyMM(vPMatrix, 0, projectionMatrix, 0, viewMatrix, 0)
 
         // Draw shape
-        mTriangle.draw(color, vPMatrix)
+        mTriangle.draw(color, scratch)
     }
 
     override fun onSurfaceChanged(unused: GL10, width: Int, height: Int) {
