@@ -29,4 +29,8 @@
     <string name="edit">Sunting</string>
     <string name="delete">Hapus</string>
     <string name="update">Perbarui</string>
+    <string name="timeout">Waktu Habis!</string>
+    <string name="notficationMessage">Segera balik steak anda</string>
+    <string name="notes">notes</string>
+    <string name="note">note</string>
 </resources>

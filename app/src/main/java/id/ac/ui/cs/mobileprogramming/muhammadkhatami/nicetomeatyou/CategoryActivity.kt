@@ -64,7 +64,7 @@ class CategoryActivity : AppCompatActivity() {
         layout.addView(nameBox)
         alert.setView(layout)
 
-        alert.setPositiveButton("\"${getString(R.string.save)}\"") { dialog, _ ->
+        alert.setPositiveButton("${getString(R.string.save)}") { dialog, _ ->
             categoryViewModel.insertCategory(
                 Category(
                     name = nameBox.text.toString()
@@ -103,16 +103,16 @@ class CategoryActivity : AppCompatActivity() {
         val editText = EditText(applicationContext)
         editText.setText(category.name)
 
-        alert.setTitle("\"${getString(R.string.edit)}\"")
+        alert.setTitle("${getString(R.string.edit)}")
         alert.setView(editText)
 
-        alert.setPositiveButton("\"${getString(R.string.update)}\"") { dialog, _ ->
+        alert.setPositiveButton("${getString(R.string.update)}") { dialog, _ ->
             category.name = editText.text.toString()
             categoryViewModel.updateCategory(category)
             dialog.dismiss()
         }
 
-        alert.setNegativeButton("\"${getString(R.string.cancel)}\"") { dialog, _ ->
+        alert.setNegativeButton("${getString(R.string.cancel)}") { dialog, _ ->
             dialog.dismiss()
         }
 

@@ -71,20 +71,20 @@ class DetailRecipeActivity : AppCompatActivity() {
         val alert = AlertDialog.Builder(this)
 
         val notesText = EditText(applicationContext)
-        notesText.hint = "notes"
+        notesText.hint = "${getString(R.string.notes)}"
 
-        alert.setTitle("Note")
+        alert.setTitle("${getString(R.string.note)}")
         alert.setView(notesText)
 
         val layout = LinearLayout(applicationContext)
         layout.orientation = LinearLayout.VERTICAL
 
         val textBox = EditText(applicationContext)
-        textBox.hint = "notes"
+        textBox.hint = "${getString(R.string.notes)}"
         layout.addView(textBox) // Notice this is an start method
         alert.setView(layout) // Again this is a set method, not start
 
-        alert.setPositiveButton("Save") { dialog, _ ->
+        alert.setPositiveButton("${getString(R.string.save)}") { dialog, _ ->
             noteViewModel.insertNote(
                 Note(
                     text = textBox.text.toString(),
@@ -93,7 +93,7 @@ class DetailRecipeActivity : AppCompatActivity() {
             )
             dialog.dismiss()
         }
-        alert.setNegativeButton("Cancel") { dialog, _ ->
+        alert.setNegativeButton("${getString(R.string.cancel)}") { dialog, _ ->
             dialog.dismiss()
         }
         alert.show()
@@ -114,7 +114,7 @@ class DetailRecipeActivity : AppCompatActivity() {
             }
             if (countDown == 0) {
                 this@DetailRecipeActivity.runOnUiThread(java.lang.Runnable {
-                    this.timerText.text = "Timeout"
+                    this.timerText.text = "${getString(R.string.timeout)}"
                     val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
                         addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
                     }

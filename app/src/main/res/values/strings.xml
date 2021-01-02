@@ -29,4 +29,8 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="timeout">Timeout!</string>
+    <string name="notficationMessage">Flip your steak!</string>
+    <string name="notes">notes</string>
+    <string name="note">note</string>
 </resources>

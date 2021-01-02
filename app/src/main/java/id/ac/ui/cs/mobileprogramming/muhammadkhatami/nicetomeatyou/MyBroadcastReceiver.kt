@@ -22,8 +22,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         showNotification(context)
         StringBuilder().apply {
-            append("Waktu Habis! ")
-            append("Segera balik steak anda sekarang")
+            append("Timeout")
             toString().also { log ->
                 Log.d(TAG, log)
                 Toast.makeText(context, log, Toast.LENGTH_LONG).show()
@@ -50,8 +49,8 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
         val mBuilder = NotificationCompat.Builder(context, "CHANNEL_ID")
             .setSmallIcon(R.drawable.mainlogo)
-            .setContentTitle("Waktu Habis")
-            .setContentText("Segera balik steak anda!")
+            .setContentTitle("Timeout!")
+            .setContentText("Flip your steak")
         mBuilder.setContentIntent(contentIntent)
         mBuilder.setDefaults(RingtoneManager.TYPE_NOTIFICATION)
         mBuilder.setAutoCancel(true)
